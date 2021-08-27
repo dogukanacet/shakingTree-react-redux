@@ -1,0 +1,7 @@
+@import "../../assets/variables.scss";
+
+.Grass {
+  width: 100vw;
+  height: clamp(25px, 4vh, 40px);
+  background-color: $darkgreen;
+}

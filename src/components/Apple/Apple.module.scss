@@ -1,0 +1,36 @@
+@import "../../assets/variables.scss";
+
+.Apple {
+  margin: 100px 0 0 100px;
+  position: relative;
+  height: 60px;
+  width: 66px;
+  border-radius: 40% 40% 50% 50%;
+  background: linear-gradient(to bottom right, $red, $darkred);
+  transform: rotate(5deg);
+}
+
+.Apple::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 28px;
+  height: 7px;
+  width: 12px;
+  border-radius: 0 0 35% 35%;
+  background: linear-gradient(to bottom, transparent 50%, white 50%);
+}
+.Apple::after {
+  content: "";
+  z-index: 1;
+  left: 33px;
+  top: -10px;
+  height: 19px;
+  width: 14px;
+  position: absolute;
+  border: solid 3px;
+  border-color: transparent transparent transparent $brown;
+  box-sizing: border-box;
+  border-radius: 50%;
+  transform: rotate(25deg);
+}

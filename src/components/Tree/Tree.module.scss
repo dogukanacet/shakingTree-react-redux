@@ -1,0 +1,14 @@
+@import "../../assets/variables.scss";
+
+.Tree {
+  margin: auto;
+  width: clamp(400px, 48vw, 800px);
+  height: clamp(600px, 93vh, 1000px);
+}
+
+.Trunk {
+  margin: auto;
+  background-color: #91633f;
+  height: clamp(150px, 25%, 300px);
+  width: 150px;
+}

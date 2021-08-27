@@ -19,12 +19,23 @@ module.exports = {
         exclude: /node_modules/,
         use: "babel-loader",
       },
-      { test: /\.css$/, use: ["style-loader", "css-loader"] },
-
       {
-        test: /\.(scss)$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        test: /\.(scss|sass|css)$/i,
+        use: [
+          { loader: "style-loader" },
+          {
+            loader: "css-loader",
+            options: {
+              importLoaders: 1,
+              modules: {
+                localIdentName: "[local]__[hash:base64:5]",
+              },
+            },
+          },
+          { loader: "sass-loader" },
+        ],
       },
+
       {
         test: /\.(png|svg|jp?g|gif)$/,
         use: "file-loader",
