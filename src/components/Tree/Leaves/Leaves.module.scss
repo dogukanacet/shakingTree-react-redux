@@ -1,0 +1,40 @@
+@import "../../../assets/variables.scss";
+
+.LeavesContainer {
+  margin: auto;
+  position: relative;
+  height: clamp(400px, 75%, 750px);
+  width: 100%;
+}
+.Leaves {
+  position: relative;
+  background: $green;
+  border-radius: 50%;
+  margin: auto;
+
+  &.Main {
+    position: absolute;
+    bottom: -20px;
+    left: 25%;
+    height: 100%;
+    width: 50%;
+    border-radius: 47%;
+  }
+
+  &.Top {
+    top: 90px;
+    height: 42%;
+    width: 80%;
+  }
+
+  &.Middle {
+    height: 45%;
+    width: 100%;
+  }
+
+  &.Bottom {
+    bottom: 90px;
+    height: 39%;
+    width: 80%;
+  }
+}

@@ -2,11 +2,11 @@ import React from "react";
 
 import classes from "./Tree.module.scss";
 
-import Leaf from "./Leaf/Leaf";
+import Leaves from "./Leaves/Leaves";
 
 const tree = (props) => (
   <div className={classes.Tree}>
-    <Leaf />
+    <Leaves />
     <div className={classes.Trunk}></div>
   </div>
 );
