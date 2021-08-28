@@ -3,5 +3,5 @@
 .Grass {
   width: 100vw;
   height: clamp(25px, 4vh, 40px);
-  background-color: $darkgreen;
+  background: linear-gradient(to right, $darkgreen, $green, $darkgreen);
 }
