@@ -1,9 +1,16 @@
 @import "../../../assets/variables.scss";
 
+@import "../../Apple/Apple.module.scss";
+
 .LeavesContainer {
   margin: auto;
   position: relative;
   height: 75%;
+  width: 100%;
+}
+.Apples {
+  position: absolute;
+  height: 100%;
   width: 100%;
 }
 .Leaves {
