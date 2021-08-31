@@ -4,12 +4,10 @@ import classes from "./Leaves.module.scss";
 
 import Apple from "../../Apple/Apple";
 
-let arr = new Array(13).fill(0);
-const apples = arr.map((_) => {
-  return <Apple />;
-});
-
 const leaf = (props) => {
+  const apples = props.appleArr.map((_, index) => {
+    return <Apple key={index} />;
+  });
   return (
     <div className={classes.LeavesContainer}>
       <div className={classes.Apples}>{apples}</div>
