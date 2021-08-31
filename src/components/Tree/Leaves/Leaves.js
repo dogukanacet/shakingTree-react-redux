@@ -4,8 +4,8 @@ import classes from "./Leaves.module.scss";
 
 import Apple from "../../Apple/Apple";
 
-let arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-const apples = arr.map((apple) => {
+let arr = new Array(13).fill(0);
+const apples = arr.map((_) => {
   return <Apple />;
 });
 

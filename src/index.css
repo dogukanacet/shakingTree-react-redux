@@ -5,4 +5,5 @@ body {
     place-items: center;
     align-items: end;
     background: rgba(241, 241, 222, 0.842);
+    overflow: hidden;
 }
