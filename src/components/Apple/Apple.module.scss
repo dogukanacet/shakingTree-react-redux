@@ -1,6 +1,8 @@
 @import "../../assets/variables.scss";
 
-.Apple {
+.Apple,
+.AppleInBasket {
+  display: inline-block;
   z-index: 10;
   position: absolute;
   height: clamp(40px, 16%, 50px);
@@ -23,7 +25,16 @@
   }
 }
 
-.Apple::before {
+.AppleInBasket {
+  margin-right: 3px;
+  position: unset;
+  height: clamp(25px, 16%, 35px);
+  width: clamp(35px, 10%, 45px);
+  transform: rotate(0);
+}
+
+.Apple::before,
+.AppleInBasket::before {
   content: "";
   z-index: 1;
   right: 23%;

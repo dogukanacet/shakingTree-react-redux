@@ -1,6 +1,8 @@
 @import "../../assets/variables.scss";
 
 .Grass {
+  position: fixed;
+  bottom: 0;
   width: 100vw;
   height: clamp(25px, 4vh, 40px);
   background: linear-gradient(to right, $darkgreen, $green, $darkgreen);

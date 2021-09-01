@@ -1,10 +1,12 @@
 import React from "react";
 
+import { connect } from "react-redux";
+
 import classes from "./Leaves.module.scss";
 
 import Apple from "../../Apple/Apple";
 
-const leaf = (props) => {
+const leaves = (props) => {
   const apples = props.appleArr.map((_, index) => {
     return <Apple key={index} />;
   });
@@ -18,4 +20,11 @@ const leaf = (props) => {
     </div>
   );
 };
-export default leaf;
+
+const mapStateToProps = (state) => {
+  return {
+    appleArr: state.appleArr,
+  };
+};
+
+export default connect(mapStateToProps)(leaves);

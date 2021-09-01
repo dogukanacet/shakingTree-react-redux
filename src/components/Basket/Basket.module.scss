@@ -1,0 +1,33 @@
+@import "../../assets/variables.scss";
+
+.Basket {
+  display: flex;
+  flex-direction: row;
+  padding: 5px 5px 0 5px;
+  flex-wrap: wrap-reverse;
+  box-sizing: border-box;
+  align-content: flex-start;
+  width: clamp(180px, 13vw, 250px);
+  height: clamp(100px, 6vh, 150px);
+  background-color: rgba($brown, 0.85);
+  opacity: 0.9;
+  position: absolute;
+  right: 10px;
+  bottom: clamp(25px, 4vh, 40px);
+  border-radius: 0 0% 15% 15%;
+  border: solid $darkbrown;
+  border-width: 0 3px 3px 3px;
+}
+
+// .Basket::before {
+//   content: "";
+//   height: 100%;
+//   width: 50%;
+//   top: -50%;
+//   left: 25%;
+//   z-index: -10;
+//   border: 5px solid;
+//   border-color: rgba($brown, 0.85);
+//   border-radius: 50%;
+//   position: absolute;
+// }
