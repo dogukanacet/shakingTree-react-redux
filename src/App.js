@@ -24,7 +24,7 @@ class App extends Component {
   render() {
     return (
       <div className={classes.App}>
-        <Tree />
+        <Tree clicked={this.props.onClick} />
         <Basket />
         <Grass />
       </div>
@@ -35,6 +35,7 @@ class App extends Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     onInit: (value) => dispatch(actions.setAppleAmount(value)),
+    onClick: () => dispatch(actions.dropApples()),
   };
 };
 

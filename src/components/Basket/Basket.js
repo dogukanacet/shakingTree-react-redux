@@ -6,15 +6,17 @@ import classes from "./Basket.module.scss";
 import Apple from "../Apple/Apple";
 
 const basket = (props) => {
-  const apples = props.appleArr.map((_, index) => {
-    return <Apple inBasket key={index} />;
-  });
+  let apples = [];
+  for (var i = 0; i < props.appleCount; i++) {
+    apples.push(<Apple inBasket key={i} />);
+  }
+
   return <div className={classes.Basket}>{apples}</div>;
 };
 
 const mapStateToProps = (state) => {
   return {
-    appleArr: state.appleArr,
+    appleCount: state.appleCount,
   };
 };
 

@@ -1,6 +1,7 @@
 @import "../../assets/variables.scss";
 
 .Tree {
+  overflow: hidden;
   margin: auto;
   width: clamp(550px, 37vw, 800px);
   height: clamp(850px, 93vh, 1000px);

@@ -6,3 +6,10 @@ export const setAppleAmount = (payload) => {
     appleAmount: payload,
   };
 };
+
+export const dropApples = (id) => {
+  return {
+    type: actionType.DROP_APPLE,
+    appleId: id,
+  };
+};

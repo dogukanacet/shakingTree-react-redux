@@ -7,9 +7,10 @@ import classes from "./Leaves.module.scss";
 import Apple from "../../Apple/Apple";
 
 const leaves = (props) => {
-  const apples = props.appleArr.map((_, index) => {
-    return <Apple key={index} />;
+  const apples = props.treeArray.map((_, index) => {
+    return <Apple id={index} key={index} />;
   });
+
   return (
     <div className={classes.LeavesContainer}>
       <div className={classes.Apples}>{apples}</div>
@@ -23,7 +24,7 @@ const leaves = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    appleArr: state.appleArr,
+    treeArray: state.treeArray,
   };
 };
 

@@ -7,7 +7,11 @@ import Leaves from "./Leaves/Leaves";
 class Tree extends Component {
   render() {
     return (
-      <div className={classes.Tree}>
+      <div
+        appleid={this.props.appleid}
+        onClick={this.props.clicked}
+        className={classes.Tree}
+      >
         <Leaves />
         <div className={classes.Trunk}></div>
       </div>
