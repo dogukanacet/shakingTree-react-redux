@@ -36,7 +36,7 @@
 .Apple::before,
 .AppleInBasket::before {
   content: "";
-  z-index: 1;
+  z-index: 10;
   right: 23%;
   top: -12px;
   height: 19px;

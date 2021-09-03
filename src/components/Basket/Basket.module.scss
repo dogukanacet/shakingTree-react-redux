@@ -11,7 +11,7 @@
   height: clamp(100px, 6vh, 150px);
   background-color: rgba($brown, 0.85);
   opacity: 0.9;
-  position: absolute;
+  position: fixed;
   right: 10px;
   bottom: clamp(25px, 4vh, 40px);
   border-radius: 0 0% 15% 15%;
