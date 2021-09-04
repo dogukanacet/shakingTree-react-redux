@@ -5,6 +5,13 @@
   margin: auto;
   width: clamp(550px, 37vw, 800px);
   height: clamp(850px, 93vh, 1000px);
+  &:active {
+    animation-name: shake;
+    animation-duration: 0.25s;
+    transform-origin: center 100%;
+    animation-iteration-count: 12;
+    animation-timing-function: linear;
+  }
 }
 
 .Trunk {
@@ -12,4 +19,18 @@
   background: linear-gradient(to right, $darkbrown, $brown, $darkbrown);
   height: 25%;
   width: 150px;
+}
+
+@keyframes shake {
+  0%,
+  50%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-2deg);
+  }
+  75% {
+    transform: rotate(2deg);
+  }
 }
