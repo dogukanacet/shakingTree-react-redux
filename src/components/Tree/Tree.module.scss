@@ -5,6 +5,8 @@
   margin: auto;
   width: clamp(550px, 37vw, 800px);
   height: clamp(850px, 93vh, 1000px);
+  position: relative;
+  top: 5px;
   &:active {
     animation-name: shake;
     animation-duration: 0.25s;

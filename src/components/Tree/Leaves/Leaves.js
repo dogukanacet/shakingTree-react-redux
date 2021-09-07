@@ -7,8 +7,8 @@ import classes from "./Leaves.module.scss";
 import Apple from "../../Apple/Apple";
 
 const leaves = (props) => {
-  const apples = props.treeArray.map((_, index) => {
-    return <Apple id={index} key={index} />;
+  const apples = props.treeArray.map((apple, index) => {
+    return <Apple id={apple.id} key={index} />;
   });
 
   return (

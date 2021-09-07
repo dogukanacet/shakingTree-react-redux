@@ -12,19 +12,17 @@ import Basket from "./components/Basket/Basket";
 
 class App extends Component {
   componentDidMount() {
-    this.props.onInit(this.getRandomInt(5, 13));
+    this.props.onInit(this.getRandomInt(6, 13));
   }
 
   getRandomInt = (min, max) => {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   };
 
   render() {
     return (
       <div className={classes.App}>
-        <Tree clicked={this.props.onClick} />
+        <Tree clicked={() => this.props.onClick(this.getRandomInt(1, 3))} />
         <Basket />
         <Grass />
       </div>
@@ -35,7 +33,10 @@ class App extends Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     onInit: (value) => dispatch(actions.setAppleAmount(value)),
-    onClick: () => dispatch(actions.dropApples()),
+    onClick: (value) => {
+      dispatch(actions.addAppleToBasket(value)),
+        dispatch(actions.dropApple(value));
+    },
   };
 };
 
