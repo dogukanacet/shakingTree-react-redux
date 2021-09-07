@@ -5,8 +5,11 @@
   margin: auto;
   width: clamp(550px, 37vw, 800px);
   height: clamp(850px, 93vh, 1000px);
+<<<<<<< HEAD
   position: relative;
   top: 5px;
+=======
+>>>>>>> 8c95e3df4610845a373960ba33c43c53d8c69a70
   &:active {
     animation-name: shake;
     animation-duration: 0.25s;
