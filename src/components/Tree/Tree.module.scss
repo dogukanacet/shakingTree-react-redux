@@ -5,21 +5,20 @@
   margin: auto;
   width: clamp(550px, 37vw, 800px);
   height: clamp(850px, 93vh, 1000px);
-<<<<<<< HEAD
   position: relative;
   top: 5px;
-=======
->>>>>>> 8c95e3df4610845a373960ba33c43c53d8c69a70
-  &:active {
-    animation-name: shake;
-    animation-duration: 0.25s;
-    transform-origin: center 100%;
-    animation-iteration-count: 12;
-    animation-timing-function: linear;
-  }
+}
+
+.active {
+  animation-name: shake;
+  animation-duration: 0.25s;
+  transform-origin: center 100%;
+  animation-iteration-count: 12;
+  animation-timing-function: linear;
 }
 
 .Trunk {
+  cursor: pointer;
   margin: auto;
   background: linear-gradient(to right, $darkbrown, $brown, $darkbrown);
   height: 25%;
