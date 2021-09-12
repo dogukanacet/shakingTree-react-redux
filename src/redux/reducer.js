@@ -1,6 +1,7 @@
 import * as actionType from "./actionTypes";
 
 const initialState = {
+  shakeTree: false,
   treeArray: [],
   appleAmountInBasket: 0,
   appleCount: 0,
@@ -32,6 +33,12 @@ const reducer = (state = initialState, action) => {
         treeArray: treeArray,
       };
 
+    case actionType.SHAKE_TREE:
+      return {
+        ...state,
+        shakeTree: true,
+      };
+
     case actionType.DROP_APPLE:
       let newTreeArray = dropApple(state.treeArray);
       return {
@@ -43,6 +50,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         appleAmountInBasket: (state.appleAmountInBasket += state.appleCount),
+        shakeTree: false,
       };
 
     default:

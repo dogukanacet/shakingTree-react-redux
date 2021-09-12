@@ -7,6 +7,12 @@ export const setAppleAmount = (appleAmount) => {
   };
 };
 
+export const shakeTree = () => {
+  return {
+    type: actionType.SHAKE_TREE,
+  };
+};
+
 export const dropApple = (fallingAppleCount) => {
   return {
     type: actionType.DROP_APPLE,

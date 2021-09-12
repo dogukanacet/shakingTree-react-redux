@@ -10,28 +10,28 @@ import Leaves from "./Leaves/Leaves";
 import Apple from "../Apple/Apple";
 
 class Tree extends Component {
-  state = {
-    shake: false,
-  };
+  // state = {
+  //   shake: false,
+  // };
 
-  shakeTreeEnableHandler = () => {
-    this.setState({
-      shake: true,
-    });
+  // shakeTreeEnableHandler = () => {
+  //   this.setState({
+  //     shake: true,
+  //   });
 
-    setTimeout(() => {
-      this.props.clicked();
-      setTimeout(() => {
-        this.shakeTreeDisableHandler();
-      }, 2000);
-    }, 3000);
-  };
+  //   setTimeout(() => {
+  //     this.props.clicked();
+  //     setTimeout(() => {
+  //       this.shakeTreeDisableHandler();
+  //     }, 2000);
+  //   }, 3000);
+  // };
 
-  shakeTreeDisableHandler = () => {
-    this.setState({
-      shake: false,
-    });
-  };
+  // shakeTreeDisableHandler = () => {
+  //   this.setState({
+  //     shake: false,
+  //   });
+  // };
 
   render() {
     const apples = this.props.treeArray.map((apple, index) => {
@@ -47,13 +47,10 @@ class Tree extends Component {
     });
     return (
       <div
-        onClick={
-          !this.state.shake && this.props.treeArray.length > 0
-            ? this.shakeTreeEnableHandler
-            : null
-        }
         className={
-          this.state.shake ? `${classes.Tree} ${classes.active}` : classes.Tree
+          this.props.shakeTree
+            ? `${classes.Tree} ${classes.active}`
+            : classes.Tree
         }
       >
         <TransitionGroup className={classes.Apples}>{apples}</TransitionGroup>
@@ -66,6 +63,7 @@ class Tree extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    shakeTree: state.shakeTree,
     treeArray: state.treeArray,
   };
 };

@@ -1,4 +1,5 @@
 export const SET_APPLE_AMOUNT = "SET_APPLE_AMOUNT";
 
+export const SHAKE_TREE = "SHAKE_TREE";
 export const DROP_APPLE = "DROP_APPLE";
 export const ADD_APPLE_TO_BASKET = "ADD_APPLE_TO_BASKET";
