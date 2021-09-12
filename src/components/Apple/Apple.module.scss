@@ -8,6 +8,7 @@
   height: clamp(40px, 16%, 50px);
   width: clamp(50px, 10%, 60px);
   transform: rotate(5deg);
+
   .Left {
     position: absolute;
     height: 100%;
@@ -55,35 +56,12 @@
   @return $randomNum;
 }
 
-@for $i from 1 through 13 {
-  $top: #{randomNum(percentage(0.21), percentage(0.93))};
-  $left: #{randomNum(percentage(0.15), percentage(0.75))};
+@for $i from 1 through 20 {
+  $bottom: #{randomNum(percentage(0.79), percentage(0.22))};
+  $left: #{randomNum(percentage(0.22), percentage(0.71))};
+
   .Apple:nth-of-type(#{$i}) {
-    top: $top;
+    bottom: $bottom;
     left: $left;
   }
 }
-// @for $i from 1 through 4 {
-//   $top: #{randomNum(percentage(0.21), percentage(0.35))};
-//   $left: #{randomNum(percentage(0.15), percentage(0.75))};
-//   .Apple:nth-of-type(#{$i}) {
-//     top: $top;
-//     left: $left;
-//   }
-// }
-// @for $i from 5 through 9 {
-//   $top: #{randomNum(percentage(0.49), percentage(0.63))};
-//   $left: #{randomNum(percentage(0.05), percentage(0.85))};
-//   .Apple:nth-of-type(#{$i}) {
-//     top: $top;
-//     left: $left;
-//   }
-// }
-// @for $i from 10 through 13 {
-//   $top: #{randomNum(percentage(0.72), percentage(0.93))};
-//   $left: #{randomNum(percentage(0.15), percentage(0.76))};
-//   .Apple:nth-of-type(#{$i}) {
-//     top: $top;
-//     left: $left;
-//   }
-// }

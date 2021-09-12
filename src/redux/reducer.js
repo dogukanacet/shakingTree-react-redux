@@ -3,37 +3,25 @@ import * as actionType from "./actionTypes";
 const initialState = {
   treeArray: [],
   appleAmountInBasket: 0,
+  appleCount: 0,
 };
 
 const reducer = (state = initialState, action) => {
-  let dropApple = (treeArray) => {
-    let newArray = treeArray.filter((item, index) => {
-      if (action.appleAmount === 3) {
-        return index !== 0 && index !== 1 && index !== 2;
-      }
-      if (action.appleAmount === 2) {
-        return index !== 0 && index !== 1;
-      }
-      if (action.appleAmount === 1) {
-        return index !== 0;
-      }
-    });
-
-    return newArray;
+  let getAvailableAppleCount = (treeArray) => {
+    if (treeArray.length < action.fallingAppleCount) {
+      action.fallingAppleCount = treeArray.length;
+    }
+    state.appleCount = action.fallingAppleCount;
   };
 
-  let addAppleToBasket = (treeArray, appleAmountInBasket) => {
-    if (treeArray.length < 1) {
-      return appleAmountInBasket;
-    }
-    if (treeArray.length < 2) {
-      return (appleAmountInBasket += 1);
-    }
-    if (treeArray.length === 2 && action.appleAmount > 1) {
-      return (appleAmountInBasket += 2);
+  let dropApple = (treeArray) => {
+    getAvailableAppleCount(treeArray);
+    let newArray = treeArray;
+    for (let i = 0; i < state.appleCount; i++) {
+      newArray = newArray.filter((_, index) => index !== 0);
     }
 
-    return (appleAmountInBasket += action.appleAmount);
+    return newArray;
   };
 
   switch (action.type) {
@@ -52,13 +40,9 @@ const reducer = (state = initialState, action) => {
       };
 
     case actionType.ADD_APPLE_TO_BASKET:
-      let newAppleAmountInBasket = addAppleToBasket(
-        state.treeArray,
-        state.appleAmountInBasket
-      );
       return {
         ...state,
-        appleAmountInBasket: newAppleAmountInBasket,
+        appleAmountInBasket: (state.appleAmountInBasket += state.appleCount),
       };
 
     default:

@@ -25,6 +25,17 @@
   width: 150px;
 }
 
+.Apples {
+  box-sizing: border-box;
+  margin-top: -5px;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  .active {
+    animation: fall 2s ease-in;
+  }
+}
+
 @keyframes shake {
   0%,
   50%,
@@ -36,5 +47,14 @@
   }
   75% {
     transform: rotate(2deg);
+  }
+}
+
+@keyframes fall {
+  50% {
+    bottom: 0;
+  }
+  100% {
+    bottom: 0;
   }
 }

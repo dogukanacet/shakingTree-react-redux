@@ -2,9 +2,12 @@ import React, { Component } from "react";
 
 import { connect } from "react-redux";
 
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+
 import classes from "./Tree.module.scss";
 
 import Leaves from "./Leaves/Leaves";
+import Apple from "../Apple/Apple";
 
 class Tree extends Component {
   state = {
@@ -15,6 +18,13 @@ class Tree extends Component {
     this.setState({
       shake: true,
     });
+
+    setTimeout(() => {
+      this.props.clicked();
+      setTimeout(() => {
+        this.shakeTreeDisableHandler();
+      }, 2000);
+    }, 3000);
   };
 
   shakeTreeDisableHandler = () => {
@@ -24,20 +34,29 @@ class Tree extends Component {
   };
 
   render() {
+    const apples = this.props.treeArray.map((apple, index) => {
+      return (
+        <CSSTransition
+          classNames={{ exitActive: classes.active }}
+          timeout={2000}
+          key={index}
+        >
+          <Apple></Apple>
+        </CSSTransition>
+      );
+    });
     return (
       <div
-        onAnimationEnd={() => {
-          this.shakeTreeDisableHandler();
-          this.props.clicked();
-        }}
-        appleid={this.props.appleid}
-        onClick={this.shakeTreeEnableHandler}
+        onClick={
+          !this.state.shake && this.props.treeArray.length > 0
+            ? this.shakeTreeEnableHandler
+            : null
+        }
         className={
-          this.state.shake && this.props.treeArray.length > 0
-            ? `${classes.Tree} ${classes.active}`
-            : classes.Tree
+          this.state.shake ? `${classes.Tree} ${classes.active}` : classes.Tree
         }
       >
+        <TransitionGroup className={classes.Apples}>{apples}</TransitionGroup>
         <Leaves />
         <div className={classes.Trunk}></div>
       </div>

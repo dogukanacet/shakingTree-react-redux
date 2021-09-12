@@ -1,22 +1,21 @@
 import * as actionType from "./actionTypes";
 
-export const setAppleAmount = (value) => {
+export const setAppleAmount = (appleAmount) => {
   return {
     type: actionType.SET_APPLE_AMOUNT,
-    appleAmount: value,
+    appleAmount: appleAmount,
   };
 };
 
-export const dropApple = (value) => {
+export const dropApple = (fallingAppleCount) => {
   return {
     type: actionType.DROP_APPLE,
-    appleAmount: value,
+    fallingAppleCount: fallingAppleCount,
   };
 };
 
-export const addAppleToBasket = (value) => {
+export const addAppleToBasket = () => {
   return {
     type: actionType.ADD_APPLE_TO_BASKET,
-    appleAmount: value,
   };
 };

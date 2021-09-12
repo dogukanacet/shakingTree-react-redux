@@ -19,7 +19,4 @@ const app = (
   </Provider>
 );
 
-ReactDOM.render(
-  <React.StrictMode>{app}</React.StrictMode>,
-  document.querySelector("#root")
-);
+ReactDOM.render(app, document.querySelector("#root"));

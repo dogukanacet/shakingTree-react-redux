@@ -12,17 +12,24 @@ import Basket from "./components/Basket/Basket";
 
 class App extends Component {
   componentDidMount() {
-    this.props.onInit(this.getRandomInt(6, 13));
+    this.props.onInit(this.getRandomInt(10, 20));
   }
 
   getRandomInt = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
 
+  shakeTree = (appleAmount) => {
+    this.props.onShake(appleAmount);
+    setTimeout(() => {
+      this.props.onFall();
+    }, 2000);
+  };
+
   render() {
     return (
       <div className={classes.App}>
-        <Tree clicked={() => this.props.onClick(this.getRandomInt(1, 3))} />
+        <Tree clicked={() => this.shakeTree(this.getRandomInt(1, 3))} />
         <Basket />
         <Grass />
       </div>
@@ -30,14 +37,18 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapStateToProps = (state) => {
   return {
-    onInit: (value) => dispatch(actions.setAppleAmount(value)),
-    onClick: (value) => {
-      dispatch(actions.addAppleToBasket(value)),
-        dispatch(actions.dropApple(value));
-    },
+    treeArray: state.treeArray,
   };
 };
 
-export default connect(null, mapDispatchToProps)(App);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onInit: (appleAmount) => dispatch(actions.setAppleAmount(appleAmount)),
+    onShake: (appleAmount) => dispatch(actions.dropApple(appleAmount)),
+    onFall: (payload) => dispatch(actions.addAppleToBasket(payload)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
