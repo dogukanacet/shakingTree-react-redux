@@ -18,11 +18,35 @@
 }
 
 .Trunk {
-  cursor: pointer;
+  position: relative;
+  z-index: -5;
   margin: auto;
-  background: linear-gradient(to right, $darkbrown, $brown, $darkbrown);
+  background: radial-gradient(closest-side, $brown, $darkbrown);
   height: 25%;
   width: 150px;
+}
+
+.Trunk::before,
+.Trunk::after {
+  content: "";
+  display: block;
+  z-index: -50;
+  height: 98px;
+  width: 120px;
+  position: absolute;
+  border: solid 15px;
+  border-color: transparent #6d4b36 transparent transparent;
+  box-sizing: border-box;
+  border-radius: 50%;
+  bottom: -8px;
+  right: 128px;
+  transform: rotate(30deg);
+}
+
+.Trunk::after {
+  transform: scaleX(-1) rotate(30deg);
+  left: 128px;
+  right: unset;
 }
 
 .Apples {
