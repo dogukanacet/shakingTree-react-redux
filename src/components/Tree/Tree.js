@@ -10,31 +10,8 @@ import Leaves from "./Leaves/Leaves";
 import Apple from "../Apple/Apple";
 
 class Tree extends Component {
-  // state = {
-  //   shake: false,
-  // };
-
-  // shakeTreeEnableHandler = () => {
-  //   this.setState({
-  //     shake: true,
-  //   });
-
-  //   setTimeout(() => {
-  //     this.props.clicked();
-  //     setTimeout(() => {
-  //       this.shakeTreeDisableHandler();
-  //     }, 2000);
-  //   }, 3000);
-  // };
-
-  // shakeTreeDisableHandler = () => {
-  //   this.setState({
-  //     shake: false,
-  //   });
-  // };
-
   render() {
-    const apples = this.props.treeArray.map((apple, index) => {
+    const apples = this.props.applesOnTree.map((_, index) => {
       return (
         <CSSTransition
           classNames={{ exitActive: classes.active }}
@@ -64,7 +41,7 @@ class Tree extends Component {
 const mapStateToProps = (state) => {
   return {
     shakeTree: state.shakeTree,
-    treeArray: state.treeArray,
+    applesOnTree: state.applesOnTree,
   };
 };
 

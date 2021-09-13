@@ -7,7 +7,7 @@ import Apple from "../Apple/Apple";
 
 const basket = (props) => {
   let apples = [];
-  for (var i = 0; i < props.appleAmount; i++) {
+  for (var i = 0; i < props.appleAmountInBasket; i++) {
     apples.push(<Apple inBasket key={i} />);
   }
 
@@ -16,7 +16,7 @@ const basket = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    appleAmount: state.appleAmountInBasket,
+    appleAmountInBasket: state.appleAmountInBasket,
   };
 };
 

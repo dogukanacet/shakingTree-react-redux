@@ -12,30 +12,48 @@ import Basket from "./components/Basket/Basket";
 import Button from "./components/Button/Button";
 
 class App extends Component {
+  MIN_INITIAL_APPLE_COUNT = 10;
+  MAX_INITIAL_APPLE_COUNT = 20;
+
+  MIN_FALLING_APPLE_COUNT = 2;
+  MAX_FALLING_APPLE_COUNT = 4;
+
   componentDidMount() {
-    this.props.onInit(this.getRandomInt(10, 20));
+    // Defines the initial number of apples on tree between two parameters on mount.
+    this.props.onInit(
+      this.getRandomNumber(
+        this.MIN_INITIAL_APPLE_COUNT,
+        this.MAX_INITIAL_APPLE_COUNT
+      )
+    );
   }
 
-  getRandomInt = (min, max) => {
+  // Returns random number between given parameters.
+  getRandomNumber = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
 
-  shakeTree = (appleAmount) => {
-    if (!this.props.shakeTree && this.props.treeArray.length > 0) {
+  // Dispatches all three actions needed for apples to drop from tree.
+  shakeTree = (fallingAppleCount) => {
+    if (!this.props.shakeTree && this.props.applesOnTree.length > 0) {
       this.props.onClick();
       setTimeout(() => {
-        this.props.onShake(appleAmount);
+        this.props.onShake(fallingAppleCount);
         setTimeout(() => {
           this.props.onFall();
         }, 2000);
-      }, 3000);
+      }, 3000); // Timeout is used in order to call the function after tree's animation ended.
     }
   };
 
   render() {
+    let fallingAppleCount = this.getRandomNumber(
+      this.MIN_FALLING_APPLE_COUNT,
+      this.MAX_FALLING_APPLE_COUNT
+    );
     return (
       <div className={classes.App}>
-        <Button clicked={() => this.shakeTree(this.getRandomInt(1, 3))} />
+        <Button clicked={() => this.shakeTree(fallingAppleCount)} />
         <Tree />
         <Basket />
         <Grass />
@@ -47,16 +65,17 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return {
     shakeTree: state.shakeTree,
-    treeArray: state.treeArray,
+    applesOnTree: state.applesOnTree,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onInit: (appleAmount) => dispatch(actions.setAppleAmount(appleAmount)),
+    onInit: (initialAppleCount) =>
+      dispatch(actions.setAppleCountOnTree(initialAppleCount)),
     onClick: () => dispatch(actions.shakeTree()),
-    onShake: (appleAmount) => dispatch(actions.dropApple(appleAmount)),
-    onFall: (payload) => dispatch(actions.addAppleToBasket(payload)),
+    onShake: (appleCount) => dispatch(actions.dropAppleFromTree(appleCount)),
+    onFall: () => dispatch(actions.addAppleToBasket()),
   };
 };
 

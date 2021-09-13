@@ -1,9 +1,11 @@
 import * as actionType from "./actionTypes";
 
-export const setAppleAmount = (appleAmount) => {
+// Sets initial apple count on tree.
+export const setAppleCountOnTree = (initialAppleCount) => {
+  initialAppleCount = initialAppleCount > 20 ? 20 : initialAppleCount; // Max apple count cannot be more than 20.
   return {
-    type: actionType.SET_APPLE_AMOUNT,
-    appleAmount: appleAmount,
+    type: actionType.SET_APPLE_COUNT_ON_TREE,
+    initialAppleCount: initialAppleCount,
   };
 };
 
@@ -13,9 +15,9 @@ export const shakeTree = () => {
   };
 };
 
-export const dropApple = (fallingAppleCount) => {
+export const dropAppleFromTree = (fallingAppleCount) => {
   return {
-    type: actionType.DROP_APPLE,
+    type: actionType.DROP_APPLE_FROM_TREE,
     fallingAppleCount: fallingAppleCount,
   };
 };
