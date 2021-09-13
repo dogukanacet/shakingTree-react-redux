@@ -2,7 +2,7 @@
 
 ## Preview
 
-
+<p><img align="center" alt="gif" src="https://github.com/dogukanacet/shakingTree-react-redux/blob/main/src/assets/preview.gif" height="320"/></p>
 
 ## Available Scripts
 
